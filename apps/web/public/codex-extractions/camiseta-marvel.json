@@ -1,0 +1,90 @@
+{
+  "version": 2,
+  "sourceFileName": "camiseta-marvel.png",
+  "imageSha256": "6c97f4c54c66014c1b3618134237461ff22a1b1452d8603ccaaa2b46b2fc95d8",
+  "extraction": {
+    "ficha": {
+      "reference": "01.14.01.3221",
+      "secondaryCode": "2026-2-3547",
+      "modeling": "Top MC D.100",
+      "client": "C&A",
+      "collection": "C&A — Baby Club — Summer I 2026",
+      "season": "Summer I 2026",
+      "labelCode": "CVA",
+      "sizes": "1 ao 5",
+      "designer": "Camila / Taly",
+      "mainMaterial": "Malha Gorgurão PA",
+      "composition": "",
+      "weight": "",
+      "complementaryMaterials": "Ribana 2x1.",
+      "colors": [
+        {
+          "number": "01",
+          "name": "2026 Oatmeal",
+          "pantone": "13-0401",
+          "code": "MC 408431"
+        },
+        {
+          "number": "02",
+          "name": "Winery",
+          "pantone": "19-1537",
+          "code": "MC 4040267"
+        },
+        {
+          "number": "03",
+          "name": "Bright White",
+          "pantone": "11-0601",
+          "code": "MC 791510"
+        }
+      ],
+      "construction": "Recorte FRENTE / COSTAS na cor 02.",
+      "seams": "Ribana 2x1 com pesponto 1 agulha; reforço na cor 01.",
+      "neckline": "Gola pronta com 1,5 cm.",
+      "hems": "Bainhas 2 agulhas.",
+      "measurements": "Gola pronta: 1,5 cm.",
+      "print": "",
+      "embroidery": "",
+      "applique": "Aplique em 1/2 malha na cor 03, estampado e rebordado na peça com linha na cor preta.",
+      "artworkReference": "ASGARD-10458259266-SMAF_P_1117",
+      "trim1": "",
+      "trim2": "",
+      "trim3": "",
+      "trim4": "",
+      "labels": "",
+      "changes": "Cor 02 / Saiu etiqueta decorativa.",
+      "notes": "Produto Disney; marca Marvel. Outros identificadores visíveis: 2; 800 100-14.\nConferir separação das operações do aplique: Aplique em 1/2 malha na cor 03, estampado e rebordado na peça com linha na cor preta."
+    },
+    "warnings": [
+      "Leitura visual pelo Codex nesta conversa; ainda não aprovada pela empresa.",
+      "Conferir o código da arte e os códigos MC no original. Composição, gramatura e tabela de medidas não estão informadas.",
+      "Campos convertidos do formato anterior. Reextraia para conferir modelagem literal, aplicações e aviamentos."
+    ]
+  },
+  "legacyFicha": {
+    "reference": "01.14.01.3221",
+    "secondaryCode": "2026-2-3547",
+    "product": "Top MC D.100",
+    "client": "C&A",
+    "collection": "C&A — Baby Club — Summer I 2026 (CVA)",
+    "season": "Summer I 2026",
+    "line": "Baby Club",
+    "sizes": "1 ao 5",
+    "designer": "Camila / Taly",
+    "mainMaterial": "Malha Gorgurão PA",
+    "composition": "",
+    "weight": "",
+    "complementaryMaterials": "Ribana 2x1.",
+    "colors": "Cor 01 — 2026 Oatmeal 13-0401 (MC 408431)\nCor 02 — Winery 19-1537 (MC 4040267)\nCor 03 — Bright White 11-0601 (MC 791510)",
+    "construction": "Recorte FRENTE / COSTAS na cor 02.",
+    "seams": "Ribana 2x1 com pesponto 1 agulha; reforço na cor 01.",
+    "neckline": "Gola pronta com 1,5 cm.",
+    "hems": "Bainhas 2 agulhas.",
+    "measurements": "Gola pronta: 1,5 cm.",
+    "artwork": "Aplique em 1/2 malha na cor 03, estampado e rebordado na peça com linha na cor preta.",
+    "artworkReference": "ASGARD-10458259266-SMAF_P_1117",
+    "trims": "",
+    "labels": "",
+    "changes": "Cor 02 / Saiu etiqueta decorativa.",
+    "notes": "Produto Disney; marca Marvel. Outros identificadores visíveis: 2; 800 100-14."
+  }
+}

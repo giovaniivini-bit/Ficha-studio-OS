@@ -1,0 +1,8 @@
+# Globs dos arquivos que este slot PODE tocar (1 por linha). Escrito pelo Arquiteto.
+# Validado pelo pre-commit (scripts/check-zoning.mjs) e pelo ai-team reconcile.
+# A pasta do próprio slot (specs/slots/...) é sempre permitida — não precisa listar.
+# Exemplos por tipo de slot (ver PARALLEL-PROTOCOL §3):
+#   backend:  apps/api/src/modules/<dominio>/**  +  apps/api/test/<dominio>*.ts
+#   frontend: apps/web/app/<rota>/**  +  apps/web/lib/queries/<dominio>.ts
+#   adapter:  packages/<dominio>/src/**  (o index.ts é zona neutra mesmo assim)
+#   dados:    packages/db/src/**  +  packages/db/drizzle/**

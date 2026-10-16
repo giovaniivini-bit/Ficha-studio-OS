@@ -1,0 +1,4 @@
+apps/web/app/home-client.tsx
+apps/web/app/components/ficha/**
+apps/web/lib/queries/fichas.ts
+

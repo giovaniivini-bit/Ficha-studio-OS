@@ -1,0 +1,9 @@
+# Ajustes de campos — comentários do usuário
+
+Contrato único packages/shared/src/dto/ficha.ts atualizado pelo principal. Objetos novos usam FichaSchema estrito; storage/import aceita CompatibleFichaSchema/CompatibleExtractionResultSchema. LegacyFichaSchema preserva versão antiga. Não tornar extração nova permissiva.
+
+product vira modeling (rótulo MODELAGEM), literal do rodapé Top MC D.200. line removido; sigla do cabeçalho/estação em labelCode ETIQUETA. colors vira array {number,name,pantone,code}, uma entrada por cor, até50; form permite adicionar/remover cores e editar número sem auto-renumerar dados. Pantone/código são strings literais. print/embroidery/applique separados. trim1..trim4 strings fixas, tagsBCI e selo detalhe interativo são aviamentos. labels preservado como Outras informações de etiquetas (não confundir ETIQUETA labelCode).
+
+Migração: dados antigos continuam legíveis e original legado guardado em legacyFicha no registro; não inferir Disney a partir de nome genérico antigo. Se modelagem antiga estiver genérica, usuário deve reextrair. Mover sigla da estação/cabeçalho para etiqueta. Cores da string passam por parser conservador; dados ambíguos têm original legado acessível. Aprovação provenance é revogada quando houver migração. initialExtraction legada preservada como legacyInitialExtraction se necessário e convertida para comparação compatível; dataset só novo após revisão explícita. Rascunho atualmente aberto também deve ser normalizado durante hot reload sem descartar edição.
+
+Territórios: principal shared DTO e docs; web-fichas UI/storage/import/dataset/library/print/testes; api-fichas prompts/schema/tests do backend, exemplos/scripts de amostras e Python. Revisão independente após implementação. Sem chamada real de IA enquanto arquivos backend estão sendo alterados.

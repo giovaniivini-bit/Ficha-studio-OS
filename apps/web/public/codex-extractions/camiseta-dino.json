@@ -1,0 +1,85 @@
+{
+  "version": 2,
+  "sourceFileName": "camiseta-dino.png",
+  "imageSha256": "7015320fcfa0921f3ecd992e2492890c207bdd7bdbc057e61da75b75c6cf60e0",
+  "extraction": {
+    "ficha": {
+      "reference": "01.14.00.7728",
+      "secondaryCode": "2026-1-12658",
+      "modeling": "Top MC D.100",
+      "client": "C&A",
+      "collection": "C&A — Baby Club — Winter II 2026",
+      "season": "Winter II 2026",
+      "labelCode": "CYC",
+      "sizes": "1 ao 5",
+      "designer": "Camila / Taly",
+      "mainMaterial": "Meia malha penteada",
+      "composition": "",
+      "weight": "",
+      "complementaryMaterials": "Ribana 2x1 na cor 02.",
+      "colors": [
+        {
+          "number": "01",
+          "name": "Bright White",
+          "pantone": "11-0601",
+          "code": "MC 791510"
+        },
+        {
+          "number": "02",
+          "name": "Infinity Navy",
+          "pantone": "17-4015",
+          "code": "MC 7064035"
+        }
+      ],
+      "construction": "Ombro tombado para frente com detalhe em trançador 3 agulhas na cor 02.",
+      "seams": "Pesponto 1 agulha; reforço bico contrário na cor 01.",
+      "neckline": "Ribana 2x1 na cor 02; gola 2 cm.",
+      "hems": "Bainhas em trançador 3 agulhas na cor 02.",
+      "measurements": "Gola: 2 cm.",
+      "print": "Estampa.",
+      "embroidery": "",
+      "applique": "",
+      "artworkReference": "",
+      "trim1": "Tag BCI; código pouco legível no anexo.",
+      "trim2": "",
+      "trim3": "",
+      "trim4": "",
+      "labels": "",
+      "changes": "Alterou cor da malha. Saiu trançador do decote e incluiu reforço.",
+      "notes": "Identificadores adicionais visíveis: 2; 800 355-25."
+    },
+    "warnings": [
+      "Leitura visual pelo Codex nesta conversa; ainda não aprovada pela empresa.",
+      "A nota de alteração pode substituir parte das instruções desenhadas: conferir qual construção é vigente.",
+      "Código da tag BCI não transcrito por baixa legibilidade. Composição, gramatura e tabela de medidas não informadas.",
+      "Campos convertidos do formato anterior. Reextraia para conferir modelagem literal, aplicações e aviamentos."
+    ]
+  },
+  "legacyFicha": {
+    "reference": "01.14.00.7728",
+    "secondaryCode": "2026-1-12658",
+    "product": "Top MC D.100",
+    "client": "C&A",
+    "collection": "C&A — Baby Club — Winter II 2026 (CYC)",
+    "season": "Winter II 2026",
+    "line": "Baby",
+    "sizes": "1 ao 5",
+    "designer": "Camila / Taly",
+    "mainMaterial": "Meia malha penteada",
+    "composition": "",
+    "weight": "",
+    "complementaryMaterials": "Ribana 2x1 na cor 02.",
+    "colors": "Cor 01 — Bright White 11-0601 (MC 791510)\nCor 02 — Infinity Navy 17-4015 (MC 7064035)",
+    "construction": "Ombro tombado para frente com detalhe em trançador 3 agulhas na cor 02.",
+    "seams": "Pesponto 1 agulha; reforço bico contrário na cor 01.",
+    "neckline": "Ribana 2x1 na cor 02; gola 2 cm.",
+    "hems": "Bainhas em trançador 3 agulhas na cor 02.",
+    "measurements": "Gola: 2 cm.",
+    "artwork": "Estampa.",
+    "artworkReference": "",
+    "trims": "",
+    "labels": "Tag BCI; código pouco legível no anexo.",
+    "changes": "Alterou cor da malha. Saiu trançador do decote e incluiu reforço.",
+    "notes": "Identificadores adicionais visíveis: 2; 800 355-25."
+  }
+}

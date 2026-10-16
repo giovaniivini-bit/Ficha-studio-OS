@@ -1,0 +1,3 @@
+apps/api/src/modules/fichas/**
+apps/api/test/fichas*.ts
+

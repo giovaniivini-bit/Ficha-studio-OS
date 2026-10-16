@@ -1,0 +1,51 @@
+{
+  "version": 4,
+  "smoke": ["pnpm", "run", "smoke"],
+  "branchPrefix": "worker",
+  "autonomous": {
+    "maxWorkers": 4,
+    "model": null,
+    "command": "claude",
+    "maxTurns": 80,
+    "slotTimeoutMin": 45,
+    "stallTimeoutMin": 20,
+    "maxRetries": 2,
+    "allowNetwork": false,
+    "triage": true
+  },
+  "gates": {
+    "contractGate": { "enabled": true },
+    "cleanReviewer": { "enabled": true, "maxReviewLoops": 2 }
+  },
+  "syncBarrels": [
+    "apps/web/components/ui/index.ts",
+    "apps/web/lib/queries/index.ts",
+    "packages/core/src/index.ts",
+    "packages/shared/src/index.ts"
+  ],
+  "neutralZones": [
+    "apps/api/src/index.ts",
+    "apps/api/src/app.ts",
+    "apps/api/src/config/**",
+    "apps/api/src/plugins/**",
+    "apps/api/src/lib/**",
+    "apps/web/app/layout.tsx",
+    "apps/web/app/globals.css",
+    "apps/web/components/ui/**",
+    "apps/web/components/shell/**",
+    "apps/web/lib/providers.tsx",
+    "apps/web/lib/api/**",
+    "apps/web/lib/queries/index.ts",
+    "apps/web/lib/cn.ts",
+    "packages/shared/**",
+    "packages/*/src/index.ts",
+    "packages/db/src/schema.ts",
+    "package.json",
+    "pnpm-workspace.yaml",
+    "pnpm-lock.yaml",
+    "tsconfig.base.json",
+    ".ai-team.json",
+    ".githooks/**",
+    "scripts/**"
+  ]
+}

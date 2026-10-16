@@ -1,0 +1,179 @@
+@import 'tailwindcss';
+
+/* ============================================================================
+   Design tokens — fonte da verdade visual.
+   Direção visual do Ficha Studio conforme docs/design/DESIGN-OVERVIEW.md.
+
+   REGRA (lição projeto-origem): telas usam SEMPRE var(--token) / classes do
+   tema — nunca hex literal. Duas telas com o mesmo papel visual ficam
+   idênticas porque bebem do mesmo token.
+   ============================================================================ */
+:root {
+  --background: #eeefeb;
+  --foreground: #232c28;
+  --primary: #244f40;
+  --primary-foreground: oklch(98% 0 0);
+  --muted: #e5e8e2;
+  --muted-foreground: #626d65;
+  --border: #d0d7ce;
+  --success: oklch(62% 0.15 150);
+  --warning: oklch(75% 0.15 80);
+  --danger: oklch(58% 0.2 25);
+  --radius: 0.5rem;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+  --radius-card: var(--radius);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; font-family: 'Segoe UI', Arial, sans-serif; font-size: 14px; line-height: 1.55; }
+button, input, textarea, select { font: inherit; }
+button, .file-input-label { min-height: 40px; border: 1px solid var(--border); border-radius: 6px; padding: 9px 15px; background: white; color: var(--foreground); cursor: pointer; font-weight: 600; }
+button:hover, .file-input-label:hover { border-color: var(--primary); background: #f2f6f1; }
+button.primary, button[data-variant='primary'], .primary-button { background: var(--primary); color: white; border-color: var(--primary); }
+button:disabled { opacity: .5; cursor: not-allowed; }
+:focus-visible { outline: 3px solid #52836a; outline-offset: 3px; }
+h1, h2, h3, p { margin-top: 0; }
+h1 { margin-bottom: 5px; font-size: clamp(25px, 3vw, 34px); line-height: 1.15; letter-spacing: -.045em; font-weight: 650; }
+h2 { font-size: 20px; letter-spacing: -.025em; line-height: 1.3; }
+h3 { font-size: 15px; line-height: 1.4; }
+small { color: var(--muted-foreground); }
+.app-shell { max-width: 1600px; margin: 0 auto; padding: 28px 36px 48px; }
+.topbar { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-bottom: 25px; margin-bottom: 26px; border-bottom: 1px solid var(--border); }
+.brand { color: var(--primary); }
+.brand p { color: var(--muted-foreground); margin: 7px 0 0; max-width: 64ch; }
+.toolbar, .actions, .library-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
+.status-badge { display: inline-flex; align-items: center; padding: 5px 10px; border: 1px solid var(--border); border-radius: 100px; color: var(--muted-foreground); background: #f6f7f3; font-size: 12px; }
+.workspace { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(320px, 1fr); align-items: start; gap: 24px; }
+.image-panel, .form-panel { min-width: 0; background: white; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+.panel-header { padding: 20px 23px; border-bottom: 1px solid var(--border); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; }
+.panel-header h2, .panel-header h3, .panel-header p { margin-bottom: 0; }
+.image-stage { display: flex; justify-content: center; align-items: center; min-height: 500px; padding: 20px; background: #f8f9f6; }
+.image-stage img { display: block; max-width: 100%; width: 100%; height: auto; max-height: 760px; object-fit: contain; }
+.image-panel > .actions, .image-panel > p { margin: 16px 22px; }
+.empty-state { display: flex; min-height: 280px; flex-direction: column; justify-content: center; align-items: center; padding: 35px; text-align: center; color: var(--muted-foreground); }
+.empty-state h2, .empty-state h3 { color: var(--foreground); }
+.empty-state p { max-width: 44ch; }
+.file-input-label { display: inline-flex; align-items: center; justify-content: center; }
+.file-input-label input { max-width: 100%; }
+.example-list { display: flex; flex-wrap: wrap; gap: 8px; padding: 16px 22px; border-top: 1px solid var(--border); }
+.example-button { font-size: 12px; padding: 7px 11px; min-height: 34px; font-weight: 500; }
+.form-fields { padding: 0 23px 22px; }
+.field-group { border: 0; min-width: 0; margin: 0; padding: 22px 0 6px; }
+.field-group + .field-group { border-top: 1px solid var(--border); margin-top: 15px; }
+.field-group legend, .field-group > h3 { font-weight: 650; color: var(--primary); padding: 0; margin-bottom: 15px; }
+.field { display: flex; min-width: 0; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+.field label, .field > span { font-size: 12px; font-weight: 600; color: #4e5c52; }
+input:not([type='file']):not([type='checkbox']), textarea, select { width: 100%; min-height: 42px; border: 1px solid var(--border); border-radius: 5px; background: #fbfcf9; color: var(--foreground); padding: 10px 12px; }
+textarea { min-height: 83px; resize: vertical; line-height: 1.5; }
+input::placeholder, textarea::placeholder { color: #7b857d; }
+.form-panel > .actions { padding: 18px 23px; border-top: 1px solid var(--border); }
+.notice { padding: 12px 16px; margin: 14px 0; border: 1px solid var(--border); border-radius: 5px; background: #f7f8f4; overflow-wrap: anywhere; }
+.notice[data-tone='error'] { color: #a23732; border-color: #e4b7b1; background: #fff2ef; }
+.notice[data-tone='warning'] { color: #785617; border-color: #ddceaa; background: #fcf7e9; }
+.notice[data-tone='success'] { color: #256444; border-color: #bdd4bc; background: #eff7ed; }
+.library { margin-top: 32px; padding-top: 26px; border-top: 1px solid var(--border); }
+.library > h2 { margin-bottom: 18px; }
+.library-card { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 17px 20px; margin-bottom: 10px; background: white; border: 1px solid var(--border); border-radius: 6px; }
+.library-card h3, .library-card p { margin-bottom: 3px; overflow-wrap: anywhere; }
+.library-card img { width: 70px; height: 76px; object-fit: contain; }
+.library-actions { flex-shrink: 0; }
+.print-document { display: none; }
+.print-only { display: none; }
+.brand { font-size: 24px; font-weight: 700; letter-spacing: -.04em; }
+.brand small { display: block; font-size: 9px; letter-spacing: .18em; margin-top: 2px; font-weight: 500; }
+.intro { padding: 0 0 10px; }
+.intro > div > span { font-size: 10px; letter-spacing: .18em; color: var(--primary); }
+.intro h1 { font-size: clamp(26px, 3vw, 38px); margin: 8px 0; }
+.intro p { color: var(--muted-foreground); max-width: 85ch; margin-bottom: 4px; }
+.toolbar { justify-content: space-between; margin: 12px 0; }
+.toolbar + p { font-size: 12px; color: var(--muted-foreground); }
+.section-heading { padding: 20px 23px 8px; }
+.section-heading p { font-size: 12px; color: var(--muted-foreground); }
+.field-grid { padding: 0 23px 20px; }
+.examples { margin-top: 24px; }
+.example-list { border: 0; padding: 0 23px 20px; gap: 16px; }
+.example-button { display: grid; gap: 8px; width: 202px; text-align: left; padding: 10px; }
+.example-button img { width: 180px; height: 120px; object-fit: contain; background: white; }
+.file-input-label { position: relative; }
+.file-input-label input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.file-input-label:focus-within { outline: 3px solid #52836a; outline-offset: 3px; }
+.preview-surface { padding: 30px; background: #dfe4dc; border-radius: var(--radius); }
+.preview-surface .print-document { display: block; max-width: 900px; margin: auto; background: white; padding: 40px; box-shadow: 0 8px 30px #243a2814; }
+.document-header { display: flex; justify-content: space-between; gap: 20px; border-bottom: 2px solid var(--primary); padding-bottom: 16px; }
+.document-header h1 { font-size: 26px; }
+.document-header p { font-size: 12px; }
+.document-image { width: 100%; height: 420px; object-fit: contain; margin: 20px 0; }
+.document-fields h2 { font-size: 16px; border-bottom: 1px solid var(--border); padding: 12px 0 8px; }
+.document-field { margin: 0 0 12px; }
+.document-field > strong { font-size: 11px; color: var(--muted-foreground); }
+.document-field p { margin: 2px 0 0; }
+.field-value { white-space: pre-wrap; overflow-wrap: anywhere; }
+.color-editor { margin-top: 18px; }
+.color-row { border: 1px solid var(--border); border-radius: 6px; padding: 14px; margin-bottom: 12px; }
+.color-row-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+.document-colors { margin: 12px 0; }
+.document-colors table { border-collapse: collapse; width: 100%; table-layout: fixed; }
+.document-colors th, .document-colors td { padding: 7px; text-align: left; border: 1px solid var(--border); overflow-wrap: anywhere; white-space: pre-wrap; }
+.document-colors th:first-child { width: 12%; }
+.notice pre { overflow: auto; white-space: pre-wrap; overflow-wrap: anywhere; font-size: 12px; }
+
+@media (min-width: 1100px) { .image-panel { position: sticky; top: 20px; } }
+@media (max-width: 1000px) {
+  .app-shell { padding: 22px; }
+  .topbar { align-items: flex-start; flex-direction: column; gap: 18px; }
+  .workspace { grid-template-columns: minmax(0, 1fr) minmax(300px, 1fr); gap: 16px; }
+  .image-stage { min-height: 360px; }
+}
+@media (max-width: 720px) {
+  .app-shell { padding: 20px 14px 32px; }
+  .workspace { grid-template-columns: minmax(0, 1fr); }
+  .topbar { margin-bottom: 18px; padding-bottom: 20px; }
+  .toolbar { width: 100%; }
+  .toolbar button { flex: 1 1 auto; }
+  .panel-header { padding: 17px; }
+  .image-stage { min-height: 280px; padding: 12px; }
+  .form-fields { padding: 0 17px 17px; }
+  .preview-surface { padding: 10px; }
+  .preview-surface .print-document { padding: 18px; }
+  .document-header { flex-direction: column; }
+  .document-image { height: 280px; }
+  .library-card { align-items: flex-start; flex-wrap: wrap; padding: 15px; }
+  .library-actions { width: 100%; }
+}
+
+@page { size: A4 portrait; margin: 12mm; }
+@media print {
+  html, body { margin: 0 !important; padding: 0 !important; background: white !important; color: black !important; font-size: 10pt; }
+  .app-shell, .no-print, body > header, body > footer { display: none !important; }
+  .print-only { display: block !important; }
+  .print-document { display: block !important; position: static !important; width: auto !important; max-width: none !important; height: auto !important; max-height: none !important; overflow: visible !important; margin: 0 !important; padding: 0 !important; border: 0 !important; box-shadow: none !important; background: white !important; }
+  .document-header { display: flex; justify-content: space-between; gap: 8mm; border-bottom: 1pt solid #244f40; padding-bottom: 4mm; margin-bottom: 4mm; break-inside: avoid; }
+  .document-header h1 { font-size: 20pt; margin: 0; }
+  .document-header p, .print-subtitle { margin: 1mm 0; font-size: 9pt; }
+  .document-image { display: block; width: 100%; height: 110mm; margin: 0 0 5mm; object-fit: contain; break-inside: avoid; }
+  .document-image img { display: block; width: 100%; height: 110mm; object-fit: contain; }
+  .document-fields { display: block; }
+  .print-document .field-group { margin: 0 0 4mm; padding: 0; border: 0; }
+  .print-document .field-group h2, .print-document .field-group h3, .print-document .field-group legend { font-size: 11pt; padding: 2mm 0; margin: 0 0 2mm; border-bottom: .5pt solid #aaa; break-after: avoid; }
+  .document-field { display: block; margin: 0 0 3mm; padding: 0; height: auto; max-height: none; overflow: visible; break-inside: auto; }
+  .document-field dt, .document-field label, .document-field > strong { display: block; font-size: 8pt; font-weight: 650; color: #42554a; break-after: avoid; }
+  .document-field dd, .document-field p, .field-value { display: block; margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; height: auto; max-height: none; overflow: visible; orphans: 3; widows: 3; }
+  .print-document * { box-shadow: none !important; text-shadow: none !important; }
+}

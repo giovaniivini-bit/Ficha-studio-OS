@@ -1,0 +1,85 @@
+{
+  "version": 2,
+  "sourceFileName": "shorts.png",
+  "imageSha256": "2726e424f68900be9b69001783331b9f79bcc1271570abbefcb4f131ff3b957a",
+  "extraction": {
+    "ficha": {
+      "reference": "01.14.00.7267K",
+      "secondaryCode": "2025-2-3968",
+      "modeling": "Shorts Bart",
+      "client": "C&A",
+      "collection": "C&A — Baby Club — Summer I 2025",
+      "season": "Summer I 2025",
+      "labelCode": "C9A",
+      "sizes": "1 ao 5",
+      "designer": "Kethlin / Taty",
+      "mainMaterial": "Moletom PA",
+      "composition": "",
+      "weight": "260 g s/felpa",
+      "complementaryMaterials": "Gorgurão PA; ribana 2x1 no cós.",
+      "colors": [
+        {
+          "number": "01",
+          "name": "Skyway",
+          "pantone": "14-4112",
+          "code": "MC 4060288"
+        },
+        {
+          "number": "02",
+          "name": "Skyway / Gorgurão PA",
+          "pantone": "14-4112",
+          "code": "MC 4060288"
+        }
+      ],
+      "construction": "Bolsos aplicados na cor 02 com bainha 2 agulhas. Desenhos de frente e costas presentes.",
+      "seams": "",
+      "neckline": "Cós em ribana 2x1 com 3,5 cm pronto, com canaleta para cadarço. Etiqueta interna costurada.",
+      "hems": "Bainha 2 agulhas.",
+      "measurements": "Cós pronto: 3,5 cm.",
+      "print": "",
+      "embroidery": "",
+      "applique": "",
+      "artworkReference": "",
+      "trim1": "Ilhós 45 com arruela (latão), banho Prata Velha",
+      "trim2": "Cadarço com ponteira de plástico",
+      "trim3": "códigos em vermelho precisam de conferência.",
+      "trim4": "Tag Caixa de Fósforo — CÓD. 12-9006.",
+      "labels": "Etiqueta costurada na reta; CÓD. A DESENVOLVER.",
+      "changes": "",
+      "notes": "Campo Alteração sem preenchimento. Código da etiqueta superior e códigos de cadarço pouco legíveis; não transcritos."
+    },
+    "warnings": [
+      "Leitura visual pelo Codex nesta conversa; ainda não aprovada pela empresa.",
+      "Material transcrito literalmente como \"Moletom PA 260 g s/felpa\". Não converter para g/m² sem confirmação da unidade.",
+      "Confirmar códigos de aviamentos e da etiqueta superior no arquivo em maior resolução. Composição e tabela de medidas não informadas.",
+      "Campos convertidos do formato anterior. Reextraia para conferir modelagem literal, aplicações e aviamentos."
+    ]
+  },
+  "legacyFicha": {
+    "reference": "01.14.00.7267K",
+    "secondaryCode": "2025-2-3968",
+    "product": "Shorts Bart",
+    "client": "C&A",
+    "collection": "C&A — Baby Club — Summer I 2025 (C9A)",
+    "season": "Summer I 2025",
+    "line": "Baby Club",
+    "sizes": "1 ao 5",
+    "designer": "Kethlin / Taty",
+    "mainMaterial": "Moletom PA",
+    "composition": "",
+    "weight": "260 g s/felpa",
+    "complementaryMaterials": "Gorgurão PA; ribana 2x1 no cós.",
+    "colors": "Cor 01 — Skyway 14-4112 (MC 4060288)\nCor 02 — Skyway 14-4112 (MC 4060288) / Gorgurão PA",
+    "construction": "Bolsos aplicados na cor 02 com bainha 2 agulhas. Desenhos de frente e costas presentes.",
+    "seams": "",
+    "neckline": "Cós em ribana 2x1 com 3,5 cm pronto, com canaleta para cadarço. Etiqueta interna costurada.",
+    "hems": "Bainha 2 agulhas.",
+    "measurements": "Cós pronto: 3,5 cm.",
+    "artwork": "",
+    "artworkReference": "",
+    "trims": "Ilhós 45 com arruela (latão), banho Prata Velha. Cadarço com ponteira de plástico; códigos em vermelho precisam de conferência.",
+    "labels": "Etiqueta costurada na reta; CÓD. A DESENVOLVER. Tag Caixa de Fósforo — CÓD. 12-9006.",
+    "changes": "",
+    "notes": "Campo Alteração sem preenchimento. Código da etiqueta superior e códigos de cadarço pouco legíveis; não transcritos."
+  }
+}

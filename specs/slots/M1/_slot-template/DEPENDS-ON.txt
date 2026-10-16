@@ -1,0 +1,5 @@
+# Slots que precisam estar `done` ANTES deste começar (1 por linha). Escrito pelo Arquiteto.
+# Formato: <slot-id> (mesmo milestone) ou <milestone>/<slot-id>.
+# `ai-team plan` só lista este slot como pronto quando todos estiverem done;
+# `ai-team start` recusa começar antes (use --force só se souber o que está fazendo).
+# Típico: slot de fundação (schema/migration/DTO/adapter) é dependência dos consumidores.

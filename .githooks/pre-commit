@@ -1,0 +1,5 @@
+#!/bin/sh
+# Guard de ZONING (PARALLEL-PROTOCOL §3): em branch de worker, bloqueia commit
+# que toca arquivo fora do território do slot ou em zona neutra.
+# Bypass consciente (vai aparecer no reconcile): git commit --no-verify
+node "$(git rev-parse --show-toplevel)/scripts/check-zoning.mjs" --staged
