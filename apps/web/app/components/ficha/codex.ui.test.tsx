@@ -1,11 +1,23 @@
 import { describe, expect, it, vi } from 'vitest';
 import { emptyFicha } from '@app/shared';
-import { bindExtraction, parseCodexImport, reviewedDataset } from './codex';
+import { bindExtraction, editRecordFicha, parseCodexImport, reviewedDataset } from './codex';
+import { approveReading, completeEnrichment, approveFinal, finishSaved } from '@/lib/workflow/flow';
 import { FichaConfigSchema } from '@/lib/queries/fichas';
 import { RecordSchema } from './storage';
 const hash = 'ab'.repeat(32);
 const extraction = { ficha: emptyFicha(), warnings: [] };
 describe('Importação assistida do Codex', () => {
+  it('não contamina dataset com composição da planilha e invalida aprovação após edição', () => {
+    const reading = approveReading(emptyFicha(), 'image');
+    const ficha = { ...emptyFicha(), composition: '100% algodão' };
+    const workflow = finishSaved(approveFinal(completeEnrichment(reading, ficha, { decisions: {}, skipped: false })));
+    const record = RecordSchema.parse({ id: 'flow', updatedAt: new Date().toISOString(), fileName: 'a.png', image: 'data:image/png;base64,cG5n', ficha, warnings: [], example: false, workflow, provenance: { source: 'gemini', imageSha256: hash, initialExtraction: extraction, reviewed: true } });
+    expect(reviewedDataset([record]).examples[0]?.ficha.composition).toBe('');
+    expect(reviewedDataset([record]).examples[0]?.enrichmentContext?.after.composition).toBe('100% algodão');
+    expect(reviewedDataset([{ ...record, workflow: { ...workflow, savedAt: undefined } }]).examples).toHaveLength(0);
+    expect(editRecordFicha(record, { ...ficha, weight: '155' }).workflow?.finalApprovedAt).toBeUndefined();
+    expect(RecordSchema.safeParse({ ...record, ficha: emptyFicha() }).success).toBe(false);
+  });
   it('aceita configuração real Gemini/Codex e rejeita provedor desconhecido', () => {
     expect(FichaConfigSchema.parse({ configured: true, provider: 'gemini' }).provider).toBe('gemini');
     expect(FichaConfigSchema.parse({ configured: true, provider: 'codex' }).provider).toBe('codex');

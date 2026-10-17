@@ -120,7 +120,12 @@ input::placeholder, textarea::placeholder { color: #7b857d; }
 .document-header h1 { font-size: 26px; }
 .document-header p { font-size: 12px; }
 .document-image { width: 100%; height: 420px; object-fit: contain; margin: 20px 0; }
-.document-fields h2 { font-size: 16px; border-bottom: 1px solid var(--border); padding: 12px 0 8px; }
+.document-fields h2 { font-size: 16px; font-weight: 700; border-bottom: 1px solid var(--border); padding: 12px 0 8px; break-after: avoid; }
+.document-table { border-collapse: collapse; width: 100%; table-layout: fixed; margin: 10px 0; font-size: 12px; }
+.document-table th, .document-table td { padding: 7px; text-align: left; vertical-align: top; border: 1px solid var(--border); overflow-wrap: anywhere; white-space: pre-wrap; }
+.document-table th { font-weight: 700; }
+.document-table-scroll { overflow-x: auto; }
+.document-table tr { break-inside: avoid; }
 .document-field { margin: 0 0 12px; }
 .document-field > strong { font-size: 11px; color: var(--muted-foreground); }
 .document-field p { margin: 2px 0 0; }
@@ -131,7 +136,7 @@ input::placeholder, textarea::placeholder { color: #7b857d; }
 .document-colors { margin: 12px 0; }
 .document-colors table { border-collapse: collapse; width: 100%; table-layout: fixed; }
 .document-colors th, .document-colors td { padding: 7px; text-align: left; border: 1px solid var(--border); overflow-wrap: anywhere; white-space: pre-wrap; }
-.document-colors th:first-child { width: 12%; }
+.document-colors th:first-child { width: 34%; }
 .notice pre { overflow: auto; white-space: pre-wrap; overflow-wrap: anywhere; font-size: 12px; }
 
 @media (min-width: 1100px) { .image-panel { position: sticky; top: 20px; } }
@@ -170,6 +175,8 @@ input::placeholder, textarea::placeholder { color: #7b857d; }
   .document-image { display: block; width: 100%; height: 110mm; margin: 0 0 5mm; object-fit: contain; break-inside: avoid; }
   .document-image img { display: block; width: 100%; height: 110mm; object-fit: contain; }
   .document-fields { display: block; }
+  .document-table-scroll { overflow: visible; }
+  .document-table { min-width: 0 !important; }
   .print-document .field-group { margin: 0 0 4mm; padding: 0; border: 0; }
   .print-document .field-group h2, .print-document .field-group h3, .print-document .field-group legend { font-size: 11pt; padding: 2mm 0; margin: 0 0 2mm; border-bottom: .5pt solid #aaa; break-after: avoid; }
   .document-field { display: block; margin: 0 0 3mm; padding: 0; height: auto; max-height: none; overflow: visible; break-inside: auto; }
@@ -177,3 +184,37 @@ input::placeholder, textarea::placeholder { color: #7b857d; }
   .document-field dd, .document-field p, .field-value { display: block; margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; height: auto; max-height: none; overflow: visible; orphans: 3; widows: 3; }
   .print-document * { box-shadow: none !important; text-shadow: none !important; }
 }
+
+.module-nav, .rules-page nav { display: flex; gap: 1.5rem; align-items: center; padding: 1rem 0; }
+.module-nav a, .rules-page nav a { color: #245749; text-decoration: underline; text-underline-offset: .25rem; }
+.rules-section { padding: 1.5rem; margin: 1.5rem 0; }
+.rules-section h2, .rules-section h3 { margin: 1rem 0; }
+.rules-section p { margin: .75rem 0; }
+.rules-section .field { margin: 1rem 0; max-width: 46rem; }
+.rules-section select { padding: .75rem; border: 1px solid #ccd4ce; border-radius: .4rem; background: white; }
+.rules-section input[type=checkbox] { width: auto; margin-right: .5rem; }
+.rules-table-scroll { overflow-x: auto; margin: 1rem 0; }
+.rules-table { width: 100%; border-collapse: collapse; min-width: 780px; font-size: .9rem; }
+.rules-table th, .rules-table td { padding: .7rem; border-bottom: 1px solid #d5ddd7; text-align: left; vertical-align: top; overflow-wrap: anywhere; }
+.rules-table th { background: #eef2ed; color: #234f42; }
+
+.workflow-trail { padding: 1.5rem; margin: 1.5rem 0; border: 1px solid #cdd8d0; border-radius: .75rem; background: #fff; }
+.workflow-trail-heading { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .5rem; }
+.workflow-trail-heading h2 { font-size: 1.1rem; margin: 0; }
+.workflow-trail-heading p { font-size: .85rem; color: #4f655a; }
+.workflow-trail ol { display: grid; grid-template-columns: repeat(6, minmax(110px, 1fr)); list-style: none; overflow-x: auto; padding: 1rem 0 .5rem; margin: 0; }
+.workflow-trail li { position: relative; min-width: 110px; }
+.workflow-trail li:not(:last-child)::after { content: ''; position: absolute; left: calc(50% + 16px); right: calc(-50% + 16px); top: 15px; height: 2px; background: #d7dfd9; }
+.workflow-trail button { display: flex; flex-direction: column; gap: .45rem; align-items: center; width: 100%; padding: 0 .25rem; border: 0; background: none; font-size: .85rem; }
+.workflow-trail small { font-size: .7rem; font-weight: 400; }
+.workflow-dot { z-index: 1; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: #f3f6f2; border: 2px solid #aebdb3; }
+.workflow-trail [data-state=current] .workflow-dot { border-color: #245749; box-shadow: 0 0 0 4px #e4eee6; }
+.workflow-trail [data-state=complete] .workflow-dot { background: #245749; border-color: #245749; color: white; }
+.workflow-panel { padding: 1.5rem; margin-bottom: 1.5rem; }
+.workflow-panel h2 { margin-bottom: 1rem; }
+.workflow-panel p { margin: .75rem 0; }
+.workflow-panel .field { margin: 1rem 0; }
+.workflow-panel select { max-width: 100%; padding: .65rem; border: 1px solid #cdd8d0; border-radius: .4rem; background: white; }
+.workflow-panel input[type=checkbox] { width: auto; margin-right: .5rem; }
+.workflow-actions { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; margin: 1.5rem 0; }
+.workflow-skip { margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid #d7dfd9; }

@@ -25,7 +25,10 @@ const EnvSchema = z.object({
 export type Env = z.infer<typeof EnvSchema>;
 
 export function loadEnv(source: NodeJS.ProcessEnv = process.env): Env {
-  const parsed = EnvSchema.safeParse(source);
+  // Explicit provider always wins. Local tests can use the authenticated CLI;
+  // production never depends on a desktop session or silently falls back to it.
+  const localCodex = (source.NODE_ENV ?? 'development') === 'development' && !source.GEMINI_API_KEY?.trim();
+  const parsed = EnvSchema.safeParse({ ...source, EXTRACTION_PROVIDER: source.EXTRACTION_PROVIDER ?? (localCodex ? 'codex' : 'gemini') });
   if (!parsed.success) {
     const issues = parsed.error.issues
       .map((i) => `  - ${i.path.join('.')}: ${i.message}`)

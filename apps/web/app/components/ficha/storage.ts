@@ -1,11 +1,14 @@
 import { z } from 'zod';
 import { CompatibleExtractionResultSchema, FichaSchema, LegacyFichaSchema, normalizeFicha } from '@app/shared';
 import { imageHash } from './codex';
+import { WorkflowSchema, matchesFinalFicha } from '@/lib/workflow/flow';
 
 const LegacyExtractionSchema = z.object({ ficha: LegacyFichaSchema, warnings: z.array(z.string().max(2000)).max(50) }).strict();
 export const ProvenanceSchema = z.object({ source: z.enum(['codex', 'gemini']), imageSha256: z.string().regex(/^[a-f0-9]{64}$/i), initialExtraction: CompatibleExtractionResultSchema, reviewed: z.boolean(), legacyInitialExtraction: LegacyExtractionSchema.optional() }).strict();
 
-const CurrentRecordSchema = z.object({ id: z.string().min(1).max(100), updatedAt: z.string().datetime(), fileName: z.string().max(255), image: z.string().max(15_000_000).regex(/^data:image\/(png|jpeg|webp);base64,[A-Za-z0-9+/=]+$/).or(z.literal('')), ficha: FichaSchema, warnings: z.array(z.string().max(2000)).max(50), example: z.boolean(), provenance: ProvenanceSchema.optional(), legacyFicha: LegacyFichaSchema.optional() }).strict();
+const CurrentRecordSchema = z.object({ id: z.string().min(1).max(100), updatedAt: z.string().datetime(), fileName: z.string().max(255), image: z.string().max(15_000_000).regex(/^data:image\/(png|jpeg|webp);base64,[A-Za-z0-9+/=]+$/).or(z.literal('')), ficha: FichaSchema, warnings: z.array(z.string().max(2000)).max(50), example: z.boolean(), provenance: ProvenanceSchema.optional(), legacyFicha: LegacyFichaSchema.optional(), workflow: WorkflowSchema.optional() }).strict().superRefine((record, ctx) => {
+  if (record.workflow && !matchesFinalFicha(record.workflow, record.ficha)) ctx.addIssue({ code: 'custom', message: 'Ficha final diverge do enriquecimento aprovado.' });
+});
 export function migrateRecord(input: unknown): unknown {
   if (!input || typeof input !== 'object' || Array.isArray(input)) return input;
   const raw = input as Record<string, unknown>;

@@ -6,6 +6,8 @@ import { fileURLToPath } from 'node:url';
 const workspaceRoot = fileURLToPath(new URL('../../', import.meta.url));
 
 const nextConfig: NextConfig = {
+  // Optional isolated validation build: do not race the running local dev server.
+  distDir: process.env['FICHA_VERIFY_BUILD'] === '1' ? '.next-verify' : '.next',
   // Fixa a raiz do file-tracing no monorepo (não no home do usuário)
   outputFileTracingRoot: workspaceRoot,
 

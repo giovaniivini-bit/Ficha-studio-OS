@@ -26,7 +26,7 @@ describe('Revisão e entrada de fichas', () => {
     render(<DocumentPreview record={record} />);
     expect(screen.getAllByText('Top MC D.200').length).toBeGreaterThan(0);
     expect(screen.getByText('ETIQUETA')).toBeInTheDocument();
-    expect(screen.getByRole('table')).toHaveTextContent('MC 4060288');
+    expect(screen.getByRole('table', { name: 'Cores' })).toHaveTextContent('MC 4060288');
     expect(screen.getByText('Aviamento 4')).toBeInTheDocument();
     expect(screen.getByText('Selo detalhe interativo')).toBeInTheDocument();
   });

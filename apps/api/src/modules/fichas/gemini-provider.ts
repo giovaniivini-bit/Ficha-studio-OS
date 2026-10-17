@@ -116,12 +116,13 @@ async function extractViaGoogleApi(input: ExtractionInput, apiKey: string, model
         ] }],
         generationConfig: {
           responseMimeType: 'application/json',
-          responseSchema: {
-            type: 'OBJECT',
+          responseJsonSchema: {
+            type: 'object',
+            additionalProperties: false,
             required: ['ficha', 'warnings'],
             properties: {
               ficha: FICHA_JSON_SCHEMA,
-              warnings: { type: 'ARRAY', items: { type: 'STRING' } },
+              warnings: { type: 'array', items: { type: 'string' } },
             },
           },
         },
@@ -130,7 +131,16 @@ async function extractViaGoogleApi(input: ExtractionInput, apiKey: string, model
   } catch {
     throw new ExtractionProviderError('PROVIDER_UNAVAILABLE', 'Não foi possível acessar o Gemini Flash. Tente novamente em instantes.');
   }
-  if (!response.ok) throw new ExtractionProviderError('PROVIDER_UNAVAILABLE', 'O Gemini Flash não concluiu a solicitação. Verifique a configuração e tente novamente.');
+  if (!response.ok) {
+    const message = response.status === 400
+      ? 'O Gemini rejeitou o formato da solicitação. Revise a integração no servidor.'
+      : response.status === 401 || response.status === 403
+        ? 'O Gemini recusou o acesso. Verifique a chave e as permissões no servidor.'
+        : response.status === 429
+          ? 'O limite de uso do Gemini foi atingido. Verifique a cota e o faturamento antes de tentar novamente.'
+          : 'O Gemini Flash não concluiu a solicitação. Tente novamente em instantes.';
+    throw new ExtractionProviderError('PROVIDER_UNAVAILABLE', message);
+  }
   try {
     const result = await response.json() as { candidates?: Array<{ content?: { parts?: Array<{ text?: string }> } }> };
     const text = result.candidates?.[0]?.content?.parts?.map(p => p.text ?? '').join('') ?? '';

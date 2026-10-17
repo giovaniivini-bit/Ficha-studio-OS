@@ -13,6 +13,8 @@
   "dependencies": {
     "@app/shared": "workspace:*",
     "@tanstack/react-query": "^5.62.0",
+    "exceljs": "4.4.0",
+    "fflate": "0.8.2",
     "next": "^15.3.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
